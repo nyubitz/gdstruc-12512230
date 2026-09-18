@@ -27,6 +27,7 @@ public class Main {
 
         System.out.println("\n\nAfter selection sort:");
         printArrayElements(numbers);
+
     }
 
     private static void bubbleSort(int[] arr)
@@ -35,7 +36,7 @@ public class Main {
         {
             for (int i = 0; i < lastSortedIndex; i++)
             {
-                if (arr[i] > arr[i + 1])
+                if (arr[i] < arr[i + 1])
                 {
                         int temp = arr[i];
                         arr[i] = arr[i + 1];
@@ -49,18 +50,18 @@ public class Main {
     {
         for (int lastSortedIndex = arr.length - 1; lastSortedIndex > 0; lastSortedIndex--)
         {
-            int largestIndex = 0;
+            int smallestIndex = 0;
 
             for (int i = 0; i <= lastSortedIndex; i++){
-                if (arr[i] > arr[largestIndex])
+                if (arr[i] < arr[smallestIndex])
                 {
-                    largestIndex = i;
+                    smallestIndex = i;
                 }
             }
 
             int temp = arr[lastSortedIndex];
-            arr[lastSortedIndex] = arr[largestIndex];
-            arr[largestIndex] = temp;
+            arr[lastSortedIndex] = arr[smallestIndex];
+            arr[smallestIndex] = temp;
         }
     }
 
