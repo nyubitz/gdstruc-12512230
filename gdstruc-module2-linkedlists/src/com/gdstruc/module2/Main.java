@@ -7,18 +7,28 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Player heejin = new Player(1, "Heejin", 27);
-        Player hyunjin = new Player(2, "Hyunjin", 84);
-        Player haseul = new Player(3, "Haseul", 121);
+        Player asuna = new Player(1, "Asuna", 27);
+        Player lethalBacon = new Player(2, "LethalBacon", 84);
+        Player hpDeskjet = new Player(3, "HPDeskjet", 121);
 
         PlayerLinkedList playerLinkedList = new PlayerLinkedList();
 
-        playerLinkedList.addToFront(heejin);
-        playerLinkedList.addToFront(hyunjin);
-        playerLinkedList.addToFront(haseul);
+        playerLinkedList.addToFront(asuna);
+        playerLinkedList.addToFront(lethalBacon);
+        playerLinkedList.addToFront(hpDeskjet);
 
         playerLinkedList.printList();
-    }
 
+        Player heathcliff = new Player(21, "Heathcliff", 92);
+
+        playerLinkedList.addToFront(heathcliff);
+        playerLinkedList.printList();
+
+        playerLinkedList.removeHead();
+        playerLinkedList.printList();
+
+        System.out.println(playerLinkedList.contains(lethalBacon));
+
+    }
 }
 
