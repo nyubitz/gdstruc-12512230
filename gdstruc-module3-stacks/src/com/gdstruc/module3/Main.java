@@ -4,7 +4,7 @@ public class Main {
 
     public static void main(String[] args){
 
-        ArrayStack stack = new ArrayStack(5);
+        LinkedStack stack = new LinkedStack();
 
         stack.push(new Player(1, "aceu", 100));
         stack.push(new Player(2, "Sinatraa", 100));
@@ -13,7 +13,7 @@ public class Main {
 
         //stack.printStack();
 
-        System.out.println("Popping: " + stack.peek());
+        System.out.println("Peeking: " + stack.peek());
 
         //stack.printStack();
 
