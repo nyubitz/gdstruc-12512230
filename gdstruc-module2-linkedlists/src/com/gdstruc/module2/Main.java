@@ -27,7 +27,12 @@ public class Main {
         playerLinkedList.removeHead();
         playerLinkedList.printList();
 
-        System.out.println(playerLinkedList.contains(lethalBacon));
+        System.out.print("Contains lethalbacon: ");
+        System.out.println (playerLinkedList.contains(lethalBacon));
+
+
+        System.out.print("Index Of Asuna: ");
+        System.out.println (playerLinkedList.indexOf(asuna));
 
     }
 }

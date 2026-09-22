@@ -8,7 +8,9 @@ public class PlayerLinkedList {
     {
         PlayerNode playerNode = new PlayerNode(player);
         playerNode.setNextPlayer(getHead());
-        playerNode.getNextPlayer().setPreviousPlayer(playerNode);
+        if (head != null) {
+            head.setPreviousPlayer(playerNode);
+        }
         setHead(playerNode);
         addToSize();
     }
@@ -39,18 +41,18 @@ public class PlayerLinkedList {
 
         if (!contains(player)) {
             System.out.println("Player not in LinkedList");
-            return null;
+            return indexCount;
         }
 
         PlayerNode current = getHead();
         while(true){
-            indexCount +;
+            indexCount ++;
 
              if (current.getPlayer() == player){
                  break;
              }
 
-            current = current.getNext();
+            current = current.getNextPlayer();
         }
 
         return indexCount;
