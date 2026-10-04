@@ -1,4 +1,4 @@
-package com.gdstruc.module4;
+package com.gdstruc.quiz3;
 
 import java.util.NoSuchElementException;
 
