@@ -50,7 +50,7 @@ public class Main {
         cardPile.drawCard(5, playerCards);
         playerCards.printStack();
 
-        while(playerCards.getSize() > 0) {
+        while(playerCards.getSize() != 0) {
             int turnCount = 1;
             System.out.println("TURN " + turnCount);
 
@@ -60,8 +60,16 @@ public class Main {
             switch (turnChoice){
                 case 1:
                     System.out.println("The bot has chosen to DRAW CARD");
-                    cardPile.drawCard(cardCount, playerCards);
-                    System.out.println("You now have " + cardCount + " more cards!");
+                    if (cardPile.getSize() == 0){
+                        System.out.println("HOWEVER, CARD PILE is EMPTY. The System rolls again");
+                        break;
+                    } else {
+                        if (cardPile.getSize() < cardCount){
+                            cardCount = cardPile.getSize();
+                        }
+                        cardPile.drawCard(cardCount, playerCards);
+                        System.out.println("You now have " + cardCount + " more cards!");
+                    }
                     break;
                 case 2:
                     System.out.println("The bot has chosen to DISCARD CARDS");
@@ -70,9 +78,17 @@ public class Main {
                     break;
                 case 3:
                     System.out.println("The bot has chosen to DRAW from the DISCARD PILE!");
-                    discardPile.drawCard(cardCount, playerCards);
-                    System.out.println("You now have " + cardCount + " more cards!");
-                    break;
+                    if (discardPile.getSize() == 0){
+                        System.out.println("HOWEVER, Discard pile is EMPTY. The System rolls again");
+                        break;
+                    } else {
+                        if (discardPile.getSize() < cardCount){
+                            cardCount = discardPile.getSize();
+                        }
+                        discardPile.drawCard(cardCount, playerCards);
+                        System.out.println("You now have " + cardCount + " more cards!");
+                    }
+                break;
             }
 
             turnCount++;
