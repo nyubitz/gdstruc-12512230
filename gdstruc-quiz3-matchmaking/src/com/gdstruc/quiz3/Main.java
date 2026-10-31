@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
+    
     public static void main(String[] args) {
         int fullGames = 0;
         ArrayQueue queue = new ArrayQueue(7);
@@ -19,8 +20,7 @@ public class Main {
                 createMatch(queue);
                 System.out.println(queue.size() + " PLAYERS IN QUEUE...");
                 queue.printQueue();
-            } else
-            {
+            } else {
                 randQueue(queue, playerList);
             }
 
@@ -41,8 +41,7 @@ public class Main {
         queue.printQueue();
     }
 
-    public static void addPlayers(List<Player> playerList)
-    {
+    public static void addPlayers(List<Player> playerList) {
         playerList.add(new Player(1, "W4TN3Y", 100));
         playerList.add(new Player(2, "Ry_Grace", 97));
         playerList.add(new Player(3, "Linus42", 54));
@@ -56,8 +55,7 @@ public class Main {
 
     }
 
-    public static void createMatch(ArrayQueue queue)
-    {
+    public static void createMatch(ArrayQueue queue) {
         for (int i = 0; i < 5; i++){
             queue.remove();
         }

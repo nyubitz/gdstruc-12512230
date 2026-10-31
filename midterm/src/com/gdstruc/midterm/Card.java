@@ -7,7 +7,7 @@ public class Card {
     private String name;
     private int index;
 
-    public Card(int id, String name){
+    public Card(int id, String name) {
         this.id = id;
         this.name = name;
     }

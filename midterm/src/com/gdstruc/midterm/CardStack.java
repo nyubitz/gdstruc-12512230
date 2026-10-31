@@ -16,40 +16,38 @@ public class CardStack {
         cardStack.push(card);
     };
 
-    public void drawCard(int count, CardStack playerStack){
-        for (int i = 0; i < count; i++){
+    public void drawCard(int count, CardStack playerStack) {
+        for (int i = 0; i < count; i++) {
             takeCard(playerStack);
         }
     }
 
-    public void discardCard(int count, CardStack discardPile){
+    public void discardCard(int count, CardStack discardPile) {
         for (int i = 0; i < count; i++) {
             takeCard(discardPile);
         }
     }
 
-    public void takeCard(CardStack recipient)
-    {
+    public void takeCard(CardStack recipient) {
         Card temp = cardStack.pop();
         recipient.addCard(temp);
     }
 
 
-    public void printStack()
-    {
+    public void printStack() {
         int count = 1;
         System.out.println(getName() + " has " + getSize() + " cards.");
         ListIterator<Card> iterator = cardStack.listIterator();
         System.out.println("Printing stack . . .");
-        while (iterator.hasNext())
-        {
+
+        while (iterator.hasNext()) {
             System.out.print(count + ". ");
             System.out.println(iterator.next());
             count++;
         }
     }
 
-    public int getSize(){
+    public int getSize() {
         return cardStack.size();
     }
 

@@ -5,9 +5,9 @@ import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-
         CardStack cardPile = new CardStack("cardPile");
 
+        // ADDING ALL CARDS
         cardPile.addCard(new Card(1, "The Black Rabbit"));
         cardPile.addCard(new Card(2, "The Black Cat"));
         cardPile.addCard(new Card(3, "The Black Bird"));
@@ -46,43 +46,46 @@ public class Main {
         CardStack playerCards = new CardStack("playerCards");
         CardStack discardPile = new CardStack("discardPile");
 
+        // START
         System.out.println("You start with 5 cards from the pile");
         cardPile.drawCard(5, playerCards);
         playerCards.printStack();
 
+        // INITIAL LOOP
         while(playerCards.getSize() != 0) {
             int turnCount = 1;
             System.out.println("TURN " + turnCount);
-
             int turnChoice = (int)(Math.random() * 4);
             int cardCount = (int)(Math.random() * 6);
 
             switch (turnChoice){
                 case 1:
                     System.out.println("The bot has chosen to DRAW CARD");
-                    if (cardPile.getSize() == 0){
+                    if (cardPile.getSize() == 0) {
                         System.out.println("HOWEVER, CARD PILE is EMPTY. The System rolls again");
                         break;
                     } else {
-                        if (cardPile.getSize() < cardCount){
+                        if (cardPile.getSize() < cardCount) {
                             cardCount = cardPile.getSize();
                         }
                         cardPile.drawCard(cardCount, playerCards);
                         System.out.println("You now have " + cardCount + " more cards!");
                     }
                     break;
+
                 case 2:
                     System.out.println("The bot has chosen to DISCARD CARDS");
                     playerCards.discardCard(cardCount, discardPile);
                     System.out.println("You have discarded " + cardCount + " cards!");
                     break;
+
                 case 3:
                     System.out.println("The bot has chosen to DRAW from the DISCARD PILE!");
-                    if (discardPile.getSize() == 0){
+                    if (discardPile.getSize() == 0) {
                         System.out.println("HOWEVER, Discard pile is EMPTY. The System rolls again");
                         break;
                     } else {
-                        if (discardPile.getSize() < cardCount){
+                        if (discardPile.getSize() < cardCount) {
                             cardCount = discardPile.getSize();
                         }
                         discardPile.drawCard(cardCount, playerCards);

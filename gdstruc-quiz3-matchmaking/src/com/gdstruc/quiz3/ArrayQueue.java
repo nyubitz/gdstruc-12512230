@@ -7,15 +7,12 @@ public class ArrayQueue {
     private int front;
     private int back;
 
-    public ArrayQueue(int capacity)
-    {
+    public ArrayQueue(int capacity) {
         queue = new Player[capacity];
     }
 
-    public void add(Player player)
-    {
-        if (back == queue.length)
-        {
+    public void add(Player player) {
+        if (back == queue.length) {
             Player[] newArray = new Player[queue.length * 2];
             System.arraycopy(queue, 0, newArray, 0, queue.length);
             queue = newArray;
@@ -25,10 +22,8 @@ public class ArrayQueue {
         back++;
     }
 
-    public Player remove()
-    {
-        if (size() == 0)
-        {
+    public Player remove() {
+        if (size() == 0) {
             throw new NoSuchElementException();
         }
 
@@ -36,8 +31,7 @@ public class ArrayQueue {
         queue[front] = null;
         front++;
 
-        if (size() == 0)
-        {
+        if (size() == 0) {
             front = 0;
             back = 0;
         }
@@ -45,26 +39,22 @@ public class ArrayQueue {
         return removedPlayer;
     }
 
-    public int size()
-    {
+    public int size() {
         return back - front;
     }
 
-    public Player peek()
-    {
-        if (size() == 0)
-        {
+    public Player peek() {
+        if (size() == 0) {
             throw new NoSuchElementException();
         }
 
         return queue[front];
     }
 
-    public void printQueue()
-    {
-        for (int i = front; i < back; i++)
-        {
+    public void printQueue() {
+        for (int i = front; i < back; i++) {
             System.out.println(queue[i]);
         }
     }
+
 }
