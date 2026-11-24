@@ -29,5 +29,8 @@ public class Main {
         playerList.search("Leon_K");
 
         playerList.search("TESTNAME");
+
+        playerList.remove("W4TN3Y");
+        playerList.printAll();
     }
 }

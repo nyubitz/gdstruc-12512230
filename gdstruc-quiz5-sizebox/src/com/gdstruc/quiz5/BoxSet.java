@@ -51,6 +51,13 @@ public class BoxSet {
 
     }
 
+    public void remove(String username){
+        int nameSize = username.length();
+
+        sizeBoxes[nameSize - 1].remove(username);
+    }
+
+
     public void print(int count){
         sizeBoxes[count + 1].print();
     }

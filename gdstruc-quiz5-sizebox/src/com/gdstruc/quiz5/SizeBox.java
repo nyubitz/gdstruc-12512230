@@ -25,7 +25,7 @@ public class SizeBox {
 
         players[count] = player;
 
-        count++;
+        count += 1;
     }
 
     public void search(String username){
@@ -45,12 +45,41 @@ public class SizeBox {
 
     public void print(){
         for (int i = 0; i < count; i++){
+            int number = i + 1;
             if (players[i] != null) {
-                System.out.print("  " + i + ". ");
+                System.out.print("  " + number + ". ");
                 players[i].printValue();
             }
         }
     }
+
+    public void remove(String username){
+        for (int i = 0; i < count; i++){
+            if (players[i] != null && Objects.equals(players[i].getuserName(), username)) {
+                System.out.println("PLAYER FOUND!... THEY WILL BE REMOVED...");
+
+                players[i] = null;
+
+                for (int o = i; i < count; o++){
+                    if (players[o+1] != null){
+                        players[o] = players[o+1];
+                    } else {
+                        players[o] = null;
+                    }
+
+                    if (players[o] == null){
+                        return;
+                    }
+                }
+
+                return;
+            }
+        }
+
+        System.out.println("PLAYER NOT FOUND... WOMP WOMP... ");
+        System.out.println("Use put() to add \n");
+    }
+
 
     public boolean isEmpty(){
         boolean isEmpty = true;
